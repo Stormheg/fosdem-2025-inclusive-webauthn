@@ -8,8 +8,8 @@ The slides are created with [Slidev](https://sli.dev/).
 
 To start the slide show:
 
-- `npm install`
-- `npm run dev`
+- `yarn install`
+- `yarn dev`
 - visit <http://localhost:3030>
 
 Learn more about Slidev at the [documentation](https://sli.dev/).

@@ -5,10 +5,12 @@ theme: seriph
 # like them? see https://unsplash.com/collections/94734566/slidev
 background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
-title: "Secure and Inclusive: WebAuthn for (Multi-Factor) Authentication"
+title: Welcome to Slidev
 info: |
-  ## Secure and Inclusive: WebAuthn for (Multi-Factor) Authentication
+  ## Slidev Starter Template
+  Presentation slides for developers.
 
+  Learn more at [Sli.dev](https://sli.dev)
 # apply unocss classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing
@@ -19,53 +21,31 @@ transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
 ---
-## Secure and Inclusive: WebAuthn for (Multi-Factor) Authentication
 
-FOSDEM – February 2nd, 2025
+# Welcome to Slidev
 
-<!-- 
+Presentation slides for developers
 
- -->
+<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
+  Press Space for next page <carbon:arrow-right />
+</div>
 
----
-transition: fade-out
----
-
-## `whoami`
-
-- **Storm Heg**
-- **Independent contractor**. Building quality websites with Wagtail CMS and Django for a living since 2019.
-- **I ❤️ Open Source**
-  - Member of the Wagtail CMS core team
-  - Admin for the Django Commons initiative, helping facilitate community maintenance of open source in the Django ecosystem.
-- **Personal open source projects**. Creator of open-source, such as [`django-otp-webauthn`](https://github.com/Stormbase/django-otp-webauthn)
-
-<!-- 
-
- -->
-
----
-transition: fade-out
----
-
-## What we will cover
-
-- **Why multi-factor authentication (MFA) is important**
-- **Why traditional MFA has issues**
-- **What is WebAuthn**
-- **Why WebAuthn is a better alternative**
-- **How to implement WebAuthn in your (Django) project**
+<div class="abs-br m-6 text-xl">
+  <button @click="$slidev.nav.openInEditor" title="Open in Editor" class="slidev-icon-btn">
+    <carbon:edit />
+  </button>
+  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
+    <carbon:logo-github />
+  </a>
+</div>
 
 <!--
-
+The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
 
 ---
 transition: fade-out
 ---
-
-##
-
 
 # What is Slidev?
 
