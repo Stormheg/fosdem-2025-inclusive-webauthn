@@ -1218,7 +1218,16 @@
   dependencies:
     roughjs "^4.6.6"
 
-"@slidev/theme-default@latest":
+"@slidev/theme-apple-basic@^0.25.1":
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/@slidev/theme-apple-basic/-/theme-apple-basic-0.25.1.tgz#ef0c236870ffffddaad0a4df7e2f569a200d05a5"
+  integrity sha512-saA5yYui+jTT13tP+QJKnWeM8sK0IA1iln2E3sWAJsfKdQHUD3fw8+AlUHLUH6yc8NPq3ewtZcwWx49a/iF8Tg==
+  dependencies:
+    "@slidev/types" "^0.47.0"
+    codemirror-theme-vars "^0.1.2"
+    prism-theme-vars "^0.2.4"
+
+"@slidev/theme-default@^0.25.0":
   version "0.25.0"
   resolved "https://registry.yarnpkg.com/@slidev/theme-default/-/theme-default-0.25.0.tgz#3006e3b20af497a27240091731fc3b056f780b28"
   integrity sha512-iWvthH1Ny+i6gTwRnEeeU+EiqsHC56UdEO45bqLSNmymRAOWkKUJ/M0o7iahLzHSXsiPu71B7C715WxqjXk2hw==
@@ -1227,7 +1236,7 @@
     codemirror-theme-vars "^0.1.2"
     prism-theme-vars "^0.2.4"
 
-"@slidev/theme-seriph@latest":
+"@slidev/theme-seriph@^0.25.0":
   version "0.25.0"
   resolved "https://registry.yarnpkg.com/@slidev/theme-seriph/-/theme-seriph-0.25.0.tgz#053bf054325ca79dd58a19a7a0ca27b70f273486"
   integrity sha512-PnFQbn4I70+/cVie5iAr0Im6sYvnwjkO7Yj5KonTyJZFFJFytckLTrD3ijft/J4cRnz7OmSzTyQKNX1FN/x0YQ==
