@@ -73,7 +73,26 @@ transition: fade-out
 <span v-click>(Yes, Password managers exist – but not everyone uses them)</span>
 
 
-<!-- 
+
+::right::
+
+<div v-click>
+
+**MFA adds an extra layer of security**
+
+- ~~Something you know (password)~~
+- Something you have (phone, security key)
+- Something you are (biometrics)
+</div>
+
+
+<style>
+  ul {
+    list-style-type: none;
+  }
+</style>
+
+<!--
 Let's take a look at the shortcomings of passwords.
 
 - Hard to remember
@@ -84,28 +103,8 @@ Password managers exist, but not everyone uses them or knows how to use them.
 
 I'd say that password managers were invented as a workaround for the shortcomings of passwords
 
- -->
-
-::right::
-
-<div v-click>
-
-**MFA adds an extra layer of security**
-
-- Something you know (password)
-- Something you have (phone, security key)
-- Something you are (biometrics)
-</div>
-
-<!-- 
-With multi-factor, we are trying to add another layer of security to by requiring something else in addition to the password. Like something you have (your phone, that receives SMS codes or generates TOTP codes), or something you are (biometrics). -->
- -->
-
-<style>
-  ul {
-    list-style-type: none;
-  }
-</style>
+With multi-factor, we are trying to add another layer of security by requiring something else in addition to the password. Like something you have (your phone, that receives SMS codes or generates TOTP codes), or something you are (biometrics).
+-->
 
 ---
 layout: default
@@ -128,11 +127,19 @@ transition: slide-left
   <li v-click>You switched phone numbers, and now you can't log in because you didn't update your number</li>
 </ul>
 
-<strong v-click>Problems of the modern age?</strong>
+<strong v-click>But all in the name of security, right?</strong>
 
 <!-- 
 
- -->
+Now, has any of the following situations ever happened to you?
+
+- You are waiting for an email to arrive with a code to log in
+- You need an SMS code, but your phone has no reception
+- You switched phone numbers, and now you can't log in because you didn't update your number
+
+
+Annoying situations to be in right? It's an inconvenience to wait for something to arrive or to take out your phone to approve a login.
+-->
 
 ---
 layout: default
@@ -152,10 +159,9 @@ transition: slide-left
 <!-- 
 Okay, we introduced inconvenience but we still solved our security problem right?
 
-Sort of, we just made it a bit harder for an attacker. A crafty attacker can still performing phishing attacks to obtain the second factor. By intercepting SMS codes, or by sending fake emails that look like they are from your service.
+Sort of, we just made it a harder for an attacker. But phishing is still a great risk to the security of our service.
 
-In exchange for this added security we just made it harder for our users to log in to our service. That's not very inclusive is it? Can't we come up with something better? -->
-
+And in exchange for this added security we also made it more difficult for our users to log in to our service. That's not very inclusive is it? Can't we come up with something better?
  -->
 
 
@@ -180,11 +186,30 @@ image:
 
 <img src="/login_with_passkey.png" alt="macOS system prompt asking for a fingerprint scan to confirm login" class="mx-auto" />
 
+<!--
+
+I wouldn't be here if I didn't think there was a better way. And there is! It's called WebAuthn, short for Web Authentication.
+
+You may have heard of it as Passkeys.
+
+It's a web standard for secure, passwordless authentication. It's based around public-key cryptography and does not rely on shared secrets like passwords do.
+
+It's supported by all major browsers and has been around in the form I'm describing since 2020 or so, but it's still relatively unknown. It's gaining traction due to Apple prominently supporting it in iOS 16.
+
+What I like about it is that it provides a native, predictable prompt for the user to interact with. This makes it consistent user experience across different sites.
+
+I think it's the future of authentication, but first, let's speed-run through how it works from a high level.
+
+ -->
+
 ---
 layout: two-cols-header
 ---
 
 # Quick overview of WebAuthn
+
+
+<strong>When registering:</strong>
 
  <ol>
   <li v-click>Ask the browser to create a public-private key-pair</li>
@@ -202,6 +227,14 @@ layout: two-cols-header
   <li v-click>Verify the signature is correct using the public key</li>
   <li v-click>Log in the user if the signature is correct</li>
 </ol>
+
+<!-- 
+  When a user wants to register a Passkey, we call a browser api to create a public-private key pair. The public key is sent to the server, where it is stored with a reference to the user. The private key is securely stored on the device.
+
+  This key pair is what is informally called a Passkey.
+
+  When a user wants to log in, the browser is asked to sign a challenge with the private key. The signed challenge is sent to the server, where it is verified that the signature is correct using the public key. If the signature is correct, the user is logged in.
+ -->
 
 ---
 layout: two-cols
