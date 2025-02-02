@@ -18,7 +18,7 @@ mdc: true
 layout: cover
 ---
 
-# **Secure and Inclusive:** WebAuthn for Multi-Factor Authentication
+# **Secure and Inclusive:** WebAuthn for (Multi-Factor) Authentication
 
 <div class="absolute bottom-10">
   <span class="font-700">
@@ -34,7 +34,7 @@ transition: fade-out
 # `whoami`
 
 - **Storm Heg**, he/him, The Netherlands 🇳🇱
-- **Independent contractor**, building quality websites with Wagtail CMS and Django for a living since 2019
+- **Independent contractor**, building quality websites with Wagtail CMS and Django (Python) for a living since 2019
 - **Open Source ❤️**
   - Member of the Wagtail CMS core team
   - Admin for the Django Commons initiative, helping facilitate community maintenance of open source in the Django ecosystem
@@ -80,7 +80,7 @@ transition: fade-out
 
 **MFA adds an extra layer of security**
 
-- ~~Something you know (password)~~
+- Something you know (password)
 - Something you have (phone, security key)
 - Something you are (biometrics)
 </div>
@@ -188,13 +188,13 @@ image:
 
 <!--
 
-I wouldn't be here if I didn't think there was a better way. And there is! It's called WebAuthn, short for Web Authentication.
+I wouldn't be standing here if I didn't believe there was a better way. And there is! It's called WebAuthn, short for Web Authentication.
 
-You may have heard of it as Passkeys.
+You may have heard of it already as Passkeys.
 
 It's a web standard for secure, passwordless authentication. It's based around public-key cryptography and does not rely on shared secrets like passwords do.
 
-It's supported by all major browsers and has been around in the form I'm describing since 2020 or so, but it's still relatively unknown. It's gaining traction due to Apple prominently supporting it in iOS 16.
+It's supported by all major browsers and has been around in the form I'm describing today since 2020 or so. It's gaining traction due to Apple prominently supporting it in iOS 16.
 
 What I like about it is that it provides a native, predictable prompt for the user to interact with. This makes it consistent user experience across different sites.
 
@@ -208,24 +208,25 @@ layout: two-cols-header
 
 # Quick overview of WebAuthn
 
+&nbsp;
 
 <strong>When registering:</strong>
 
  <ol>
-  <li v-click>Ask the browser to create a public-private key-pair</li>
+  <li v-click>Ask the browser to create a public-private key-pair <code>navigator.credentials.create()</code></li>
   <li v-click>Send the public key to the server, store with reference to user</li>
   <li v-click>Securely store the private key on the device</li>
 </ol>
 
-<small v-click>This public-private key-pair is informally called a _Passkey_</small>
+<p v-click>This public-private key-pair is informally called a <i>Passkey</i></p>
 
 <strong v-click>And when logging in:</strong>
 
 <ol>
-  <li v-click>Ask the browser to sign a challenge with the private key</li>
+  <li v-click>Ask the browser to sign a challenge with the private key <code>navigator.credentials.get()</code></li>
   <li v-click>Send the signed challenge to the server</li>
   <li v-click>Verify the signature is correct using the public key</li>
-  <li v-click>Log in the user if the signature is correct</li>
+  <li v-click>Log in the user associated with the public key if the signature is correct</li>
 </ol>
 
 <!-- 
@@ -237,10 +238,12 @@ layout: two-cols-header
  -->
 
 ---
-layout: two-cols
+layout: default
 ---
 
 ## Benefits of WebAuthn
+
+&nbsp;
 
 - **No passwords** to remember
 - **No shared secrets**
@@ -250,6 +253,22 @@ layout: two-cols
 - The Passkey <small>(_something you have_)</small> is typically protected by **biometrics** <small>(_something you are_)</small> or your device's **PIN/Password** <small>(_something you know_)</small>
   - There is your additional factor! 🎉
 
+<!-- 
+
+Benefits of WebAuthn:
+
+- No passwords to remember
+- No shared secrets
+- Unique for every site - if a Passkey is compromised on one site, it doesn't affect others
+- You can register separate Passkeys for multiple devices - not something that is possible with passwords
+- Phishing-resistant, they only work on the site they were registered on. You can't use a Passkey to login to a phishing site on another domain.
+
+The device that saved the Passkey is going to protect it with biometrics or a PIN/password. So there is your additional factor!
+
+This is an optional feature you can request when necessary, WebAuth calls this "user verification required".
+
+ -->
+
 ---
 layout: two-cols
 ---
@@ -258,11 +277,20 @@ layout: two-cols
 
 (Because no technology is perfect)
 
-- **Losing your Passkey is still a risk** - if your device is lost, stolen or replaced, you can't use the Passkey stored on it anymore.
-- **Cloud sync** – most providers can sync your Passkeys across devices.
-  - This is convenient, but also poses a risk
-  - <small>Your `<insert BigTech>`-account is now a single point of failure</small>
-  - <small>(but so was your password manager already...)</small>
+- **Losing your Passkey is still a risk** 
+- **Cloud sync** - a risk?
+  - Your `<insert BigTech>`-account is now a single point of failure
+  - (but so was your password manager already...)
+
+<!-- 
+Let's touch on some drawbacks of WebAuthn:
+
+- Losing your Passkey/device is still a risk - if your device is lost, stolen or replaced, you can't use the Passkey stored on it anymore.
+- Cloud sync - convenient to overcome the previous point, but also poses a risk. Your BigTech-account is now a single point of failure. But then again, so was your password manager already.
+
+Side note: most password managers can also do WebAuthn, so you can use your password manager to store your Passkeys if you want to.
+
+ -->
 
 ---
 layout: default
@@ -274,7 +302,7 @@ Implementing WebAuthn is quite involved
 
 **Server-side**:
 
-- [ ] API endpoints for registration and authentication ceremonies
+- [ ] API endpoints for **registration** and **authentication** ceremonies
 - [ ] **Store** the public key of the Passkey
 - [ ] **Verify** the signature of the Passkey
 
@@ -282,7 +310,7 @@ Implementing WebAuthn is quite involved
 
 - [ ] Communicate with your server
 - [ ] Make the appropriate `navigation.credentials.*` browser API calls
-  - [ ] <small>and handle any exceptions that may arise 💀</small>
+  - [ ] <small>and handle any exceptions that may arise 🤐</small>
 - [ ] Implement any additional features, like Passkey autofill <span>by calling the browser API slightly differently</span>
 - [ ] Area on your site for users to manage their Passkeys
 
@@ -293,6 +321,17 @@ Implementing WebAuthn is quite involved
     list-style-type: none;
   }
 </style>
+
+<!-- 
+
+Do I have you convinced to implement WebAuthn in your application yet? Great! Let's talk about what you need to do to implement it. Because doing that from scratch is quite involved.
+
+On the server-side, you need to implement API endpoints for the registration and authentication ceremonies. You need to store the public key of the Passkey and verify the signature of the Passkey.
+
+On the client-side, you need to communicate with your server, make the appropriate browser API calls and handle any exceptions that may arise. You also need to implement any additional features, like Passkey autofill by calling the browser API slightly differently. And you need to provide an area on your site for users to manage their Passkeys.
+
+In general, it is quite some effort to implement WebAuthn well. Can't it be easier? Yes, it can!
+ -->
 
 ---
 layout: full
@@ -311,6 +350,12 @@ Plenty of libraries and frameworks exist to help you implement WebAuthn in your 
 | Ruby on Rails | `webauthn-ruby`                                            |
 
 <span v-click>Disclaimer: I'm the author of `django-otp-webauthn`</span>
+
+<!-- 
+If you are building a website you are most likely using a framework or library to help you. Like Django, Node, Laravel, or whatever name your favorite framework has.
+
+Good people have already gone through the trouble of implementing WebAuthn for you by implementing libraries for these frameworks. So you don't have to do it all from scratch.
+ -->
 
 ---
 layout: statement
