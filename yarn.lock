@@ -1218,28 +1218,10 @@
   dependencies:
     roughjs "^4.6.6"
 
-"@slidev/theme-apple-basic@^0.25.1":
-  version "0.25.1"
-  resolved "https://registry.yarnpkg.com/@slidev/theme-apple-basic/-/theme-apple-basic-0.25.1.tgz#ef0c236870ffffddaad0a4df7e2f569a200d05a5"
-  integrity sha512-saA5yYui+jTT13tP+QJKnWeM8sK0IA1iln2E3sWAJsfKdQHUD3fw8+AlUHLUH6yc8NPq3ewtZcwWx49a/iF8Tg==
-  dependencies:
-    "@slidev/types" "^0.47.0"
-    codemirror-theme-vars "^0.1.2"
-    prism-theme-vars "^0.2.4"
-
 "@slidev/theme-default@^0.25.0":
   version "0.25.0"
   resolved "https://registry.yarnpkg.com/@slidev/theme-default/-/theme-default-0.25.0.tgz#3006e3b20af497a27240091731fc3b056f780b28"
   integrity sha512-iWvthH1Ny+i6gTwRnEeeU+EiqsHC56UdEO45bqLSNmymRAOWkKUJ/M0o7iahLzHSXsiPu71B7C715WxqjXk2hw==
-  dependencies:
-    "@slidev/types" "^0.47.0"
-    codemirror-theme-vars "^0.1.2"
-    prism-theme-vars "^0.2.4"
-
-"@slidev/theme-seriph@^0.25.0":
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/@slidev/theme-seriph/-/theme-seriph-0.25.0.tgz#053bf054325ca79dd58a19a7a0ca27b70f273486"
-  integrity sha512-PnFQbn4I70+/cVie5iAr0Im6sYvnwjkO7Yj5KonTyJZFFJFytckLTrD3ijft/J4cRnz7OmSzTyQKNX1FN/x0YQ==
   dependencies:
     "@slidev/types" "^0.47.0"
     codemirror-theme-vars "^0.1.2"
@@ -3636,9 +3618,9 @@ jszip@^3.7.1:
     setimmediate "^1.0.5"
 
 katex@^0.16.17, katex@^0.16.9:
-  version "0.16.18"
-  resolved "https://registry.yarnpkg.com/katex/-/katex-0.16.18.tgz#20781284288bc52805c519e48ac756163ad4b1f3"
-  integrity sha512-LRuk0rPdXrecAFwQucYjMiIs0JFefk6N1q/04mlw14aVIVgxq1FO0MA9RiIIGVaKOB5GIP5GH4aBBNraZERmaQ==
+  version "0.16.21"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.16.21.tgz#8f63c659e931b210139691f2cc7bb35166b792a3"
+  integrity sha512-XvqR7FgOHtWupfMiigNzmh+MgUVmDGU2kXZm899ZkPfcuoPuFxyHmXsgATDpFZDAXCI8tvinaVcDo8PIIJSo4A==
   dependencies:
     commander "^8.3.0"
 
